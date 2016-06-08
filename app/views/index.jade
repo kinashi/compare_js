@@ -1,0 +1,42 @@
+- function companyName() {
+-   var c = "abcdefghijklmnopqrstuvwxyz0123456789";
+-   var cl = c.length;
+-   var r = "";
+-   for(var i = 0; i < 10; i++){
+-     r += c[Math.floor(Math.random()*cl)];
+-   }
+-   return r;
+- }
+
+doctype html
+html(lang="ja")
+  head
+    meta(charset="utf-8")
+    title some title
+    link(rel="stylesheet" href="#{config.cssOutputName}")
+  body
+    .l-main
+      h1.heading-mainTitle Compare JS frameworks.
+      section.l-mainInner
+        h2.heading-subTitle jQuery
+        input#js-filter.form-textField(type="text" placeholder="filter")
+        input#js-add.form-submit(type="button" value="add")
+        table#js-table.table-company
+          thead
+            tr
+              th.table-company__head--sortable id
+              th.table-company__head 会社名
+              th.table-company__head 会社概要
+              th.table-company__head
+          tbody
+            - var id = 0;
+            - for(var j = 0; j < 15; j++) {
+              - var name = companyName();
+              tr(data-id="#{++id}" style="display: none;")
+                td.table-company__data #{id}
+                td.table-company__data(data-name="#{name}") #{name}株式会社
+                td.table-company__data id#{id}の会社だよ
+                td.table-company__data
+                  input.table-company__deleteButton(type="button" value="delete")
+            - }
+    script(src="#{config.jsOutputName}")

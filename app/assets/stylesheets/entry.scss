@@ -1,0 +1,100 @@
+@import "reset";
+@import "sprite";
+
+// layout
+.l-main {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.l-mainInner {
+  padding: 0 10px;
+}
+
+.heading-mainTitle {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.heading-subTitle {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-textField {
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  padding: 10px;
+  display: block;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  outline: none;
+  appearance: none;
+}
+
+.form-submit {
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  display: block;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
+
+.table-company {
+  margin-top: 20px;
+  border: 1px solid #aaa;
+}
+%_table-company__cell {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+%_table-company__head {
+  @extend %_table-company__cell;
+  &:first-child {
+    width: 50px;
+  }
+  &:nth-child(2) {
+    width: 200px;
+  }
+  &:nth-child(3) {
+    width: 200px;
+  }
+  background-color: #eee;
+}
+.table-company__head {
+  @extend %_table-company__head;
+}
+.table-company__head--sortable {
+  @extend %_table-company__head;
+  cursor: pointer;
+}
+.table-company__data {
+  @extend %_table-company__cell;
+  &:first-child {
+    text-align: center;
+  }
+}
+.table-company__deleteButton {
+  width: 60px;
+  height: 30px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #f33;
+  border: 1px solid #aaa;
+  background-color: #fcc;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
